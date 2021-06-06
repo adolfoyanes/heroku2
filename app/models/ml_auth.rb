@@ -1,0 +1,2 @@
+class MlAuth < ApplicationRecord
+end
