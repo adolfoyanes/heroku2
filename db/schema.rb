@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_221851) do
+ActiveRecord::Schema.define(version: 2021_06_07_171151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 2021_06_06_221851) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "ml_listings", force: :cascade do |t|
+    t.string "ml_id"
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_ml_listings_on_item_id"
+  end
+
   create_table "sellers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -54,4 +62,5 @@ ActiveRecord::Schema.define(version: 2021_06_06_221851) do
   end
 
   add_foreign_key "items", "sellers"
+  add_foreign_key "ml_listings", "items"
 end
