@@ -4,7 +4,7 @@ class AuthMlController < ApplicationController
     #@state   = params[:state]
     code        = params[:code]
     app_id      = ENV["APP_ID"]
-    secret_key  = ENV["SCRET_KEY"]
+    secret_key  = ENV["SECRET_KEY"]
     redirect_uri= ENV["REDIRECT_URL"]
 
     url_base    = "https://api.mercadolibre.com/oauth/token"
