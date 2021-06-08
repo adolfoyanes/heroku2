@@ -46,8 +46,8 @@ class StockMlController < ApplicationController
         puts "-------------------------------------"
 
         
-        #ml_id = "id_ml_#{item.id}"
-        ml_id = response_boby["ml_id"]
+        ml_id = "id_ml_#{item.id}"
+        #ml_id = response_boby["ml_id"]
         MlListing.create(
             ml_id:ml_id,
             item_id: item.id
