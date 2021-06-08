@@ -3,9 +3,9 @@ class StockMlController < ApplicationController
         acces_token = MlAuth.first
         seller_id   = "275100710"
         url_base    = "https://api.mercadolibre.com"
-        url_fina    = "#{url_base}/sites/MLM/search?seller_id=#{seller_id}"
+        url_final    = "#{url_base}/sites/MLM/search?seller_id=#{seller_id}"
 
-        response = HTTParty.get("#{url_base}")
+        response = HTTParty.get("#{url_final}")
 
         response_boby = JSON.parse response.body
 
