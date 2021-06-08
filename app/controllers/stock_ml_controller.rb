@@ -1,4 +1,17 @@
 class StockMlController < ApplicationController
+    def index
+        acces_token = MlAuth.first
+        seller_id   = "275100710"
+        url_base    = "https://api.mercadolibre.com"
+        url_fina    = "#{url_base}/sites/MLM/search?seller_id=#{seller_id}"
+
+        response = HTTParty.get("#{url_base}")
+
+        response_boby = JSON.parse response.body
+
+        @items = response_boby['results']
+    end
+    
     def sink_up
         Item.all.each{ |item|
             update_item_ml(item)

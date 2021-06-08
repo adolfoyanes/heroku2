@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :items
   resources :sellers
-  get 'sotock_ml/syncup', to: "stock_ml#sink_up"
+  get 'stock_ml/syncup', to: "stock_ml#sink_up"
+  get 'stock_ml', to: "stock_ml#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'welcome#index'
 end

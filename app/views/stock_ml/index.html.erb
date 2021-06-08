@@ -1,0 +1,28 @@
+<div class="container">
+    <p id="notice"><%= notice %></p>
+    <h3> Lista de productos en mercado libre </h3>
+
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">price</th>
+        <th scope="col">available quantity</th>
+        <th scope="col">acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @items.each do |item| %>
+            <tr>
+            <th scope="row"><%= item["id"] %></th>
+            <td><%= item["title"] %></td>
+            <td><%= item["price"] %></td>
+            <td>@<%= item["id"] %></td>
+            <td><%= item["id"] %></td>
+            </tr>
+        <% end %>
+    </tbody>
+    </table>
+</div>
+
