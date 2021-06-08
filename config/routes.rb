@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :sellers
   get 'stock_ml/syncup', to: "stock_ml#sink_up"
   get 'stock_ml', to: "stock_ml#index"
+  get 'stock_ml/:id/edit', to: "stock_ml#edit", as: "stock_ml_edit"
+  put 'stock_ml/:id/update', to: "stock_ml#update", as: "stock_ml_update"
+  #put 'stock_ml/:id/update', to: "stock_ml#update", as: "stock_ml_update"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'welcome#index'
 end

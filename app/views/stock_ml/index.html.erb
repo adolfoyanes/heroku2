@@ -18,8 +18,8 @@
             <th scope="row"><%= item["id"] %></th>
             <td><%= item["title"] %></td>
             <td><%= item["price"] %></td>
-            <td>@<%= item["id"] %></td>
-            <td><%= item["id"] %></td>
+            <td><%= item["available_quantity"] %></td>
+            <td><%= link_to 'Edit', stock_ml_edit_path(item["id"])%></td>
             </tr>
         <% end %>
     </tbody>
