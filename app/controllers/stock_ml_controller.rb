@@ -1,4 +1,5 @@
 class StockMlController < ApplicationController
+    before_action :authenticate_user!
     def index
         seller_id   = "275100710"
         url_base    = "https://api.mercadolibre.com"
