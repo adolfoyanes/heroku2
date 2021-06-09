@@ -46,9 +46,10 @@ class StockMlController < ApplicationController
     end
     
     def sink_up
-        Item.all.each{ |item|
-            update_item_ml(item)
-        }
+        UpdateStockMlWorker.perform_async
+        #Item.all.each{ |item|
+        #    update_item_ml(item)
+        #}
         redirect_to items_path
     end
 
