@@ -1,6 +1,6 @@
 class CrearItemWorker
   include Sidekiq::Worker
-  include Sidekiq::Status::Worker # enables job status tracking
+  # include Sidekiq::Status::Worker # enables job status tracking
 
 
   def expiration
