@@ -30,18 +30,23 @@ class StockMlController < ApplicationController
     end
 
     def update
-        acces_token = MlAuth.first
+        ml_auth = MlAuth.first
+
+        #if ml_auth.expiration_date < (Time.now + 1.hour)
+            puts "actualizando token"
+            MlAuth.refrescar_token_ff(ml_auth)
+        #end
+
         id          = params[:id]
         url_base    = "https://api.mercadolibre.com"
         url_final   = "#{url_base}/items/#{id}"
-        header      = {"Content-Type" => "application/json" , "Accept" => "application/json" ,"Authorization" => "Bearer #{acces_token.token}"}
+        header      = {"Content-Type" => "application/json" , "Accept" => "application/json" ,"Authorization" => "Bearer #{ml_auth.token}"}
         parametros  = {
             "title" => params[:title],
             "available_quantity" => params[:available_quantity],
         }
         response = HTTParty.put("#{url_final}", body: parametros.to_json, :headers => header)
 
-        puts response
         redirect_to stock_ml_path
     end
     

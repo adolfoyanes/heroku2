@@ -9,10 +9,15 @@ class UpdateStockMlWorker
     items = Item.where(synchronized_ml: false,update_in_process: false)
 
     items.each{ |item|
-      acces_token = MlAuth.first
+      ml_auth = MlAuth.first
+
+      if ml_auth.expiration_date < (Time.now + 1.hour)
+        MlAuth.refrescar_token_ff(ml_auth)
+      end
+
       item.update_in_process = true;
       url_base    = "https://api.mercadolibre.com/items"
-      header      = {"Content-Type" => "application/json" , "Accept" => "application/json" ,"Authorization" => "Bearer #{acces_token.token}"}
+      header      = {"Content-Type" => "application/json" , "Accept" => "application/json" ,"Authorization" => "Bearer #{ml_auth.token}"}
       parametros  = {
           "site_id" => "MLM",
           "title"=> item.title,
