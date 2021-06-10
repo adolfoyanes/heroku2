@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'stock_ml', to: "stock_ml#index"
   get 'stock_ml/:id/edit', to: "stock_ml#edit", as: "stock_ml_edit"
   put 'stock_ml/:id/update', to: "stock_ml#update", as: "stock_ml_update"
+  get 'stock_ml/test_worker', to: "stock_ml#test_worker", as: "stock_ml_test_worker"
+  post 'stock_ml/test_worker/test', to: "stock_ml#do_test_worker", as: "stock_ml_do_test"
   #put 'stock_ml/:id/update', to: "stock_ml#update", as: "stock_ml_update"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'welcome#index'

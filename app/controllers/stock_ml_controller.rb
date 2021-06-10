@@ -58,6 +58,20 @@ class StockMlController < ApplicationController
         redirect_to items_path
     end
 
+    def test_worker
+    end
+
+    def do_test_worker
+        quantity = params[:quantity_of_items]
+        
+        AddRandomItemsMlWorker.perform_async(quantity)
+
+        respond_to do |format|
+            format.html { redirect_to stock_ml_test_worker_path, notice: "El worker se está ejecutando" }
+            format.json { head :no_content }
+        end
+    end
+
     private
     def update_item_ml(item)
         
