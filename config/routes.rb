@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications', to: "notifications#index"
   get 'auth_ml/auth_response'
   get 'conectar_ml', to: "conectar_ml#index"
   devise_for :users
