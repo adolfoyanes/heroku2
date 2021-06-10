@@ -32,10 +32,10 @@ class StockMlController < ApplicationController
     def update
         ml_auth = MlAuth.first
 
-        #if ml_auth.expiration_date < (Time.now + 1.hour)
+        if ml_auth.expiration_date < (Time.now + 1.hour)
             puts "actualizando token"
             MlAuth.refrescar_token_ff(ml_auth)
-        #end
+        end
 
         id          = params[:id]
         url_base    = "https://api.mercadolibre.com"
