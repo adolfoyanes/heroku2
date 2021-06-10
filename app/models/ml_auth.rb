@@ -12,7 +12,7 @@ class MlAuth < ApplicationRecord
         if response.code == 200
           res = JSON.parse response.body
           ml_auth.token = res["access_token"]
-          ml_auth.expiration = Time.now + res["expires_in"]
+          ml_auth.expiration_date = Time.now + res["expires_in"]
           if ml_auth.save
             return 200
           else
