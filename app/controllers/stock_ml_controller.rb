@@ -52,9 +52,6 @@ class StockMlController < ApplicationController
     
     def sink_up
         UpdateStockMlWorker.perform_async
-        #Item.all.each{ |item|
-        #    update_item_ml(item)
-        #}
         redirect_to items_path
     end
 
@@ -72,8 +69,15 @@ class StockMlController < ApplicationController
         end
     end
 
-    private
-    def update_item_ml(item)
-        
+    def pause_items_worker
     end
+
+    def pause_all_items
+        PauseAllItemsMlWorker.perform_async
+        respond_to do |format|
+            format.html { redirect_to stock_ml_test_worker_pause_path, notice: "El worker está pausando las publicaciones" }
+            format.json { head :no_content }
+        end
+    end
+
 end

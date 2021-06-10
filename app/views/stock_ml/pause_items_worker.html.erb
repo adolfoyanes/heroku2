@@ -1,0 +1,12 @@
+<div class="container">
+    <h3> Testear worker </h3>
+
+    <h5> Este worker pausa todas las publicaciones de ML</h5>
+
+    <%= form_with local:true, url: "/stock_ml/test_worker_pause_items/pause", method: :post do |form| %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div>
+            <%= form.submit%>
+        </div>
+    <% end %>
+</div>

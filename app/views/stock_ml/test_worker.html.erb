@@ -1,7 +1,7 @@
 <div class="container">
     <h3> Testear worker </h3>
 
-    <h5> Este worker crea items en la base de datos local, los publica en ML y finalmente los pausa. </h5>
+    <h5> Este worker crea items en la base de datos local y los publica en ML </h5>
 
     <%= form_with local:true, url: "/stock_ml/test_worker/test", method: :post do |form| %>
         <div class="form-group row">
