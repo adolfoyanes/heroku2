@@ -2,7 +2,7 @@
 
 
 uri = URI.parse(ENV["REDIS_URL"])
-REDIS = Redis.new(:url => uri,ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
+REDIS = Redis.new(url: uri, driver: :ruby, ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
 
 #if Rails.env == 'production'
 #  uri = URI.parse(ENV["REDIS_URL"])
