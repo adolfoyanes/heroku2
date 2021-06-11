@@ -6,8 +6,13 @@ class AddRandomItemsMlWorker
     #Se crean N número de items
     #create_items(num_items)
     puts "Creando items #{num_items}"
-    for i in(1..num_items)
-      puts i
+    i = 0
+    while i < num_items
+      puts "Hola mundo"
+      i = i + 1
+    end
+    #for i in(1..num_items)
+      #puts i
       #Item.create(
        # title: "Item test #{i} No Comprar",
        # description: "Item descripction #{i}",
@@ -16,7 +21,7 @@ class AddRandomItemsMlWorker
        # visible: true,
        # seller_id: 1
       #)
-    end
+    #end
 
     puts "Termina de crear items"
     #Se sincroniza con ML
