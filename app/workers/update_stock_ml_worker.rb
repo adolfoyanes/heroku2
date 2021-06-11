@@ -16,6 +16,7 @@ class UpdateStockMlWorker
       end
 
       item.update_in_process = true;
+      item.save
       url_base    = "https://api.mercadolibre.com/items"
       header      = {"Content-Type" => "application/json" , "Accept" => "application/json" ,"Authorization" => "Bearer #{ml_auth.token}"}
       parametros  = {
