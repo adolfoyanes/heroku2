@@ -24,10 +24,15 @@
         <% end %>
     </tbody>
     </table>
-    <div class="row">
+    <div class="row  align-items-center">
         <% if @show_btn_prev %>
             <div class="col-md-1"> <%= link_to 'Anterior', stock_ml_path(:offset => @offset_anterior)%> </div>
         <% end %>
+        
+         <% for i in(0..@total_paginas) %>
+            <div class="col-md-1"> <%= link_to i + 1, stock_ml_path(:offset => (i * 50) )%> </div>
+        <% end %>
+
         <% if @show_btn_next %>
             <div class="col-md-1"> <%= link_to 'Siguiente', stock_ml_path(:offset => @offset_siguiente)%> </div>
         <% end %>

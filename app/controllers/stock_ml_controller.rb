@@ -32,6 +32,9 @@ class StockMlController < ApplicationController
             @show_btn_prev      = true
         end
 
+        @total_paginas = paging["total"].to_i / 50
+        @total_paginas = @total_paginas.to_i
+
         @items = response_boby['results']
     end
 
