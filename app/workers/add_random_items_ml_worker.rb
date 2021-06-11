@@ -4,7 +4,21 @@ class AddRandomItemsMlWorker
   def perform(num_items)
     puts "Ejecutando worker ------------------------"
     #Se crean N número de items
-    create_items(num_items)
+    #create_items(num_items)
+    puts "Creando items"
+    for i in(1..num_items)
+      puts i
+      #Item.create(
+       # title: "Item test #{i} No Comprar",
+       # description: "Item descripction #{i}",
+       # barcode: "ABC#{i}",
+       # available_quantity: i,
+       # visible: true,
+       # seller_id: 1
+      #)
+    end
+
+    puts "Termina de crear items"
     #Se sincroniza con ML
 
     #sink_up_to_ml()
