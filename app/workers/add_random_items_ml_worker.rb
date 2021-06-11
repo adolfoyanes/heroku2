@@ -29,7 +29,6 @@ class AddRandomItemsMlWorker
   end
 
   def sink_up_to_ml(item)
-    items = Item.where(synchronized_ml: false,update_in_process: false)
 
     ml_auth = MlAuth.first
     
