@@ -4,45 +4,24 @@ class AddRandomItemsMlWorker
   def perform(num_items)
     puts "Ejecutando worker ------------------------"
     #Se crean N número de items
-    #create_items(num_items)
-    puts "Creando items #{num_items}"
-    i = 0
-    while i < num_items
-      puts "Hola mundo"
-      i = i + 1
-    end
-    #for i in(1..num_items)
-      #puts i
-      #Item.create(
-       # title: "Item test #{i} No Comprar",
-       # description: "Item descripction #{i}",
-       # barcode: "ABC#{i}",
-       # available_quantity: i,
-       # visible: true,
-       # seller_id: 1
-      #)
-    #end
-
-    puts "Termina de crear items"
+    create_items(num_items)
     #Se sincroniza con ML
-
-    #sink_up_to_ml()
+    sink_up_to_ml()
     puts "Termina worker ------------------------"
   end
 
   private 
   def create_items(num_items)
     puts "Creando items"
-    for i in(1..num_items)
-      puts i
-      #Item.create(
-       # title: "Item test #{i} No Comprar",
-       # description: "Item descripction #{i}",
-       # barcode: "ABC#{i}",
-       # available_quantity: i,
-       # visible: true,
-       # seller_id: 1
-      #)
+    for i in(1..num_items.to_i)
+      Item.create(
+        title: "Item test #{i} No Comprar",
+        description: "Item descripction #{i}",
+        barcode: "ABC#{i}",
+        available_quantity: i,
+        visible: true,
+        seller_id: 1
+      )
     end
 
     puts "Termina de crear items"
