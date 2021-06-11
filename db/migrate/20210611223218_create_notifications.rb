@@ -4,7 +4,7 @@ class CreateNotifications < ActiveRecord::Migration[6.1]
       t.string :resource
       t.integer :user_id
       t.string :topic
-      t.integer :application_id
+      t.bigint :application_id
       t.integer :attempts
       t.date :sent
       t.date :received

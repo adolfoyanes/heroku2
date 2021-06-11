@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_223218) do
     t.string "resource"
     t.integer "user_id"
     t.string "topic"
-    t.integer "application_id"
+    t.bigint "application_id"
     t.integer "attempts"
     t.date "sent"
     t.date "received"
