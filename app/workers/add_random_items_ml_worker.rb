@@ -15,14 +15,15 @@ class AddRandomItemsMlWorker
   def create_items(num_items)
     puts "Creando items"
     for i in(1..num_items)
-      Item.create(
-        title: "Item test #{i} No Comprar",
-        description: "Item descripction #{i}",
-        barcode: "ABC#{i}",
-        available_quantity: i,
-        visible: true,
-        seller_id: 1
-      )
+      puts i
+      #Item.create(
+       # title: "Item test #{i} No Comprar",
+       # description: "Item descripction #{i}",
+       # barcode: "ABC#{i}",
+       # available_quantity: i,
+       # visible: true,
+       # seller_id: 1
+      #)
     end
 
     puts "Termina de crear items"
