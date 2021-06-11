@@ -5,8 +5,6 @@ class AddRandomItemsMlWorker
     puts "Ejecutando worker ------------------------"
     #Se crean N número de items
     create_items(num_items)
-    #Se sincroniza con ML
-    sink_up_to_ml()
     puts "Termina worker ------------------------"
   end
 
