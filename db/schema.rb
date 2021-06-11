@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_161139) do
+ActiveRecord::Schema.define(version: 2021_06_11_223218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2021_06_10_161139) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_ml_listings_on_item_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "resource"
+    t.integer "user_id"
+    t.string "topic"
+    t.integer "application_id"
+    t.integer "attempts"
+    t.date "sent"
+    t.date "received"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sellers", force: :cascade do |t|
