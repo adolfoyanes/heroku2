@@ -24,5 +24,13 @@
         <% end %>
     </tbody>
     </table>
+    <div class="row">
+        <% if @show_btn_prev %>
+            <div class="col-md-1"> <%= link_to 'Anterior', stock_ml_path(:offset => @offset_anterior)%> </div>
+        <% end %>
+        <% if @show_btn_next %>
+            <div class="col-md-1"> <%= link_to 'Siguiente', stock_ml_path(:offset => @offset_siguiente)%> </div>
+        <% end %>
+    </div>
 </div>
 

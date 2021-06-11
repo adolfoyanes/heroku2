@@ -1,13 +1,36 @@
 class StockMlController < ApplicationController
     before_action :authenticate_user!
     def index
+        offset = params[:offset]
+        if offset == nil
+            offset = 0 
+        end
         seller_id   = "275100710"
         url_base    = "https://api.mercadolibre.com"
-        url_final   = "#{url_base}/sites/MLM/search?seller_id=#{seller_id}"
+        url_final   = "#{url_base}/sites/MLM/search?seller_id=#{seller_id}&offset=#{offset}"
 
         response = HTTParty.get("#{url_final}")
+        
 
         response_boby = JSON.parse response.body
+        paging = response_boby["paging"]
+
+        @offset_anterior    = paging["offset"].to_i - 50
+        @offset_siguiente   = paging["offset"].to_i + 50
+        @show_btn_prev      = false
+        @show_btn_next      = false
+
+        if ((paging["total"].to_i - (offset.to_i + 50 )) > 0 )
+            @show_btn_next      = true
+        else
+            @show_btn_next      = false
+        end
+
+        if @offset_anterior < 0
+            @show_btn_prev      = false
+        else
+            @show_btn_prev      = true
+        end
 
         @items = response_boby['results']
     end
