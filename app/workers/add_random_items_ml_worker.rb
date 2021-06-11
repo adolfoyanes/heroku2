@@ -77,5 +77,4 @@ class AddRandomItemsMlWorker
         ml_id:ml_id,
         item_id: item.id
     )
-  }
 end
