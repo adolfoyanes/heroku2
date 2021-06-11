@@ -18,9 +18,7 @@ class PauseAllItemsMlWorker
       }
       response = HTTParty.put("#{url_final}", body: parametros.to_json, :headers => header)
 
-      if response.code == 200
-        mlList.destroy
-      end
+      mlList.destroy
     }
   end
 end
