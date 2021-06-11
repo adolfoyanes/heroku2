@@ -6,7 +6,8 @@ class AddRandomItemsMlWorker
     #Se crean N número de items
     create_items(num_items)
     #Se sincroniza con ML
-    sink_up_to_ml()
+
+    #sink_up_to_ml()
     puts "Termina worker ------------------------"
   end
 
@@ -23,6 +24,8 @@ class AddRandomItemsMlWorker
         seller_id: 1
       )
     end
+
+    puts "Termina de crear items"
   end
 
   def sink_up_to_ml
