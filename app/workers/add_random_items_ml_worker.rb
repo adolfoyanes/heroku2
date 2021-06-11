@@ -2,14 +2,17 @@ class AddRandomItemsMlWorker
   include Sidekiq::Worker
 
   def perform(num_items)
+    puts "Ejecutando worker ------------------------"
     #Se crean N número de items
     create_items(num_items)
     #Se sincroniza con ML
     sink_up_to_ml()
+    puts "Termina worker ------------------------"
   end
 
   private 
   def create_items(num_items)
+    puts "Creando items"
     for i in(1..num_items)
       Item.create(
         title: "Item test #{i} No Comprar",
@@ -23,6 +26,7 @@ class AddRandomItemsMlWorker
   end
 
   def sink_up_to_ml
+    puts "Actualizando items en base de datos"
     items = Item.where(synchronized_ml: false,update_in_process: false)
 
     items.each{ |item|
