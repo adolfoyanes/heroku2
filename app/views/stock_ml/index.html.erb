@@ -1,0 +1,41 @@
+<div class="container">
+    <p id="notice"><%= notice %></p>
+    <h3> Lista de productos en mercado libre </h3>
+
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">price</th>
+        <th scope="col">available quantity</th>
+        <th scope="col">acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @items.each do |item| %>
+            <tr>
+            <th scope="row"><%= item["id"] %></th>
+            <td><%= item["title"] %></td>
+            <td><%= item["price"] %></td>
+            <td><%= item["available_quantity"] %></td>
+            <td><%= link_to 'Edit', stock_ml_edit_path(item["id"])%></td>
+            </tr>
+        <% end %>
+    </tbody>
+    </table>
+    <div class="row  align-items-center">
+        <% if @show_btn_prev %>
+            <div class="col-md-1"> <%= link_to 'Anterior', stock_ml_path(:offset => @offset_anterior)%> </div>
+        <% end %>
+        
+         <% for i in(0..@total_paginas) %>
+            <div class="col-md-1"> <%= link_to i + 1, stock_ml_path(:offset => (i * 50) )%> </div>
+        <% end %>
+
+        <% if @show_btn_next %>
+            <div class="col-md-1"> <%= link_to 'Siguiente', stock_ml_path(:offset => @offset_siguiente)%> </div>
+        <% end %>
+    </div>
+</div>
+

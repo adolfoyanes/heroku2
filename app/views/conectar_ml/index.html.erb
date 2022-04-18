@@ -1,0 +1,4 @@
+<div class="container">
+    <h1 >Acceder con cuenta de mercado libre</h1>
+    <%= link_to "Acceder con mercado libre", "http://auth.mercadolibre.com/authorization?response_type=code&client_id=#{ENV["APP_ID"]}&redirect_uri=#{ENV["REDIRECT_URL"]}" %><br />
+</div>

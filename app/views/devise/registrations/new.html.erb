@@ -1,0 +1,33 @@
+<div class="fondo-container">
+  <div class="small-container center-block card padding">
+    <%= render "partials/imgLogin" %>
+    <h2>Crear cuenta</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs margin-top">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    :label => "Correo electrónico" %>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" },
+                    :label => "Contraseña" %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" },
+                    :label => "Confirmar contraseña" %>
+      </div>
+
+      <div class="form-actions margin-top">
+        <%= f.button :submit, "Registrar" , :class => "color-text" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+@import '~bootstrap/scss/bootstrap';
+.small-container{
+    width: 500px;
+    max-width: 80%;
+    position: absolute;
+    margin: auto;
+    height: 460px;
+    top: 120px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.color-text{
+    color: #673ab7;
+}
+.img-login{
+    max-width: 45%;
+    padding-top: 10px;
+    align-self: center;
+}
+.fondo-container{
+    background-image: linear-gradient(#001d7c,#be2366,#9b1870);
+    height: 5%;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 44%;
+}
+.large-container{
+    width: 100%;
+    max-width: 960px;
+}
+.center-block{
+    margin:0 auto;
+}
+.padding{
+    padding: 5px 15px;
+}
+.margin-top{
+    margin-top: 0.5em;
+}
+.field{
+    @extend .margin-top;
+    label{
+        @extend .text-uppercase;
+        @extend .text-secondary;
+    }
+    &:first-of-type{
+        margin-top: 0;
+    }
+    input{
+        @extend .form-control;
+        @extend .bg-light;
+    }
+    input[type='checkbox']{
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+        margin-right: 0.5em;
+    }
+}
